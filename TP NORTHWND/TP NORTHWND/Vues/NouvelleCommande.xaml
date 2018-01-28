@@ -1,0 +1,75 @@
+﻿<Window x:Class="TP_NORTHWND.NouvelleCommande"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP_NORTHWND"
+        mc:Ignorable="d"
+        Title="Nouvelle commande" Height="600" Width="600" SizeToContent="Width" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF092444"/>
+                    <GradientStop Color="#FF020D1B" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Grid.Background>
+            <Label x:Name="labelClient" Grid.ColumnSpan="2" FontWeight="Bold" FontStyle="Italic" Content="Commande pour le client : "/>
+            <WrapPanel Grid.Column="2">
+                <Label Content="Vendeur" />
+                <ComboBox x:Name="comboboxVendeurs" MinWidth="100" />
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="Date de commande" />
+                <DatePicker x:Name="datepickerDateCommande"/>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label Content="Date de livraison demandée" />
+                <DatePicker x:Name="datepickerDateLivraisonDemandee" />
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="Déjà livré ?" />
+                    <CheckBox x:Name="checkboxDejaLivre" VerticalAlignment="Center" Checked="BasculerAffichageDejaLivre" Unchecked="BasculerAffichageDejaLivre"/>
+                </StackPanel>
+                <DatePicker x:Name="datepickerDateLivraisonEffectuee" Visibility="Collapsed"  />
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+                <Label Content="Transporteur" />
+                <ComboBox x:Name="comboboxTransporteurs" MinWidth="100" />
+            </WrapPanel>
+            <Grid Grid.Row="4" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Prix total :"/>
+                <Label Content="$" Grid.Column="2" />
+                <Label x:Name="labelPrix" Content="0.00" Grid.Column="1" HorizontalAlignment="Right" />
+            </Grid>
+                <ListBox x:Name="listboxCommande" Grid.Row="3" Grid.Column="2" SelectionChanged="listboxCommande_SelectionChanged" />
+                <DataGrid x:Name="datagridProduits" Grid.Row="3" Grid.ColumnSpan="2" SelectionChanged="datagridProduits_SelectionChanged" />
+            <Button x:Name="buttonAjouterProduit" Grid.Row="4" MaxWidth="200" MaxHeight="30" Content="Ajouter à la commande" HorizontalAlignment="Center" MinWidth="130" IsEnabled="False" Click="AjoutProduit" />
+            <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="buttonValiderCommande" Content="Valider la commande" Margin="0,0,0,2" MinWidth="120" IsEnabled="False" Click="ValiderCommande" />
+                <Button x:Name="buttonModifierQuantite" Content="Modifier quantité" Margin="0,2,0,0" IsEnabled="False" Click="ModifierQuantite" />
+            </StackPanel>
+        </Grid>
+        </Grid>
+</Window>

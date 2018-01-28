@@ -1,0 +1,114 @@
+﻿<Window x:Class="TP_NORTHWND.Navigation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP_NORTHWND"
+        mc:Ignorable="d"
+        Title="Navigation" Height="600" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <ComboBox x:Name="comboboxListeClients" MinWidth="120" SelectionChanged="comboboxListeClients_SelectionChanged"/>
+            <Button Content="Nouveau client" MinWidth="88" Click="NouveauClient" />
+            <Button x:Name="buttonNouvelleCommande" Content="Nouvelle commande" MinWidth="119" IsEnabled="False" Click="NouvelleCommande" />
+            <Button x:Name="buttonSupprimerClient" Content="Supprimer client" MinWidth="95" IsEnabled="False" Click="SupprimerClient" />
+            <Button x:Name="buttonSupprimerCommande" Content="Supprimer commande" MinWidth="127" IsEnabled="False" Click="buttonSupprimerCommande_Click" />
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <Label x:Name="labelDate" Content="--" FontSize="10" />
+            <Menu >
+                <MenuItem x:Name="menuitemConnecteEnTantQue" Header="Connecté en tant que ">
+                    <MenuItem x:Name="menuitemDeconnexion" Header="Déconnexion" Click="menuitemDeconnexion_Click"/>
+                </MenuItem>
+            </Menu>
+        </StatusBar>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF092444"/>
+                    <GradientStop Color="#FF020D1B" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+                </Grid.Background>
+                <GroupBox x:Name="groupboxInfosClient" Header="Informations client">
+                    <WrapPanel>
+                        <GroupBox Header="Identité">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Nom de la compagnie" />
+                                <Label Content="Code" Grid.Row="1" />
+                                <TextBox Grid.Column="1" MinWidth="150" Text="{Binding CompanyName}"/>
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CustomerID}" IsReadOnly="True" />
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="Contact">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Personne à contacter" />
+                                <Label Content="Titre" Grid.Row="1" />
+                                <Label Content="Téléphone" Grid.Row="2"/>
+                                <Label Content="Fax" Grid.Row="3"/>
+                                <TextBox Grid.Column="1" MinWidth="150" Text="{Binding ContactName}" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ContactTitle}"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Phone}"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Fax}"/>
+
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="Localisation">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Adresse" />
+                                <Label Content="Code postal" Grid.Row="1" />
+                                <Label Content="Ville" Grid.Row="2" />
+                                <Label Content="Région" Grid.Row="3" />
+                                <Label Content="Pays" Grid.Row="4" />
+                                <TextBox Grid.Column="1" MinWidth="150" Text="{Binding Address}" />
+                                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PostalCode}"/>
+                                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding City}"/>
+                                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Region}"/>
+                                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Country}"/>
+                            </Grid>
+                        </GroupBox>
+                    </WrapPanel>
+                </GroupBox>
+                <DataGrid x:Name="datagridCommandes" Grid.Row="1" SelectionChanged="datagridCommandes_SelectionChanged" />
+            </Grid>
+        </Grid>
+    </DockPanel>
+    
+    
+</Window>
