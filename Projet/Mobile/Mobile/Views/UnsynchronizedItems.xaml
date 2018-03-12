@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.UnsynchronizedItems"
+             BackgroundColor="DarkSeaGreen">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout>
+                <Label x:Name="labelUnsyncedContracts"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+                <Label Text="contrats non synchronisés" 
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1">
+                <Label x:Name="labelUnsyncedParcels"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+                <Label Text="parcelles non synchronisées"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <Label x:Name="labelUnsyncedCustomers"
+                       FontAttributes="Bold"
+                       FontSize="Large"
+                       HorizontalOptions="Center"/>
+                <Label Text="clients non synchronisés"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Grid.Row="1">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Synchronizing_Tapped"
+                                          NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+                <Label Text="Synchroniser"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

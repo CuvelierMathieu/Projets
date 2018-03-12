@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.NewContract">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout x:Name="stackLayoutProductChoice">
+                <Entry Placeholder="Produit"
+                       x:Name="entryProductChoice"
+                       TextChanged="EntryProductChoice_Changed"/>
+                <ListView x:Name="listViewProductChoice"
+                              ItemTapped="Product_Tapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding Name}"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+            </StackLayout>
+            <StackLayout x:Name="stackLayoutFields"
+                         IsVisible="False">
+                <Label x:Name="labelChoosenProduct">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Tapped="ChoosenProduct_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Entry Placeholder="Année de récolte"
+                       x:Name="entryHarvestYear"/>
+                <Entry Placeholder="Prime"
+                       x:Name="entryPrime"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Parcellaire ?"/>
+                    <Switch Toggled="Parcellar_Toggled"
+                            x:Name="switchParcellar"/>
+                </StackLayout>
+                <Button Text="Signer le contrat"
+                        Clicked="ContractOK_Clicked"/>
+            </StackLayout>
+            <StackLayout x:Name="stackLayoutParcels"
+                         IsVisible="False">
+                <Entry Placeholder="Nom de la parcelle"
+                       x:Name="entryParcelName"/>
+                <Entry Placeholder="Numero Ilôt PAC"
+                       x:Name="entryParcelIlotPac"/>
+                <Entry Placeholder="Surface"
+                       x:Name="entryParcelSurface"/>
+                <Button Text="Valider"
+                        Clicked="ParcelsOK_Clicked"/>
+                <Button Text="Valider et enregistrer une autre parcelle"
+                        Clicked="NextParcel_Clicked"/>
+                <Button Text="Retour"
+                        Clicked="CancelParcel_Clicked"/>
+            </StackLayout>
+            <StackLayout x:Name="stackLayoutSignature"
+                         IsVisible="False">
+                <Button Text="Valider le contrat"
+                        Clicked="SignatureOK_Clicked"/>
+                <Button Text="Retour à la saisie"
+                        Clicked="SignatureCancel_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

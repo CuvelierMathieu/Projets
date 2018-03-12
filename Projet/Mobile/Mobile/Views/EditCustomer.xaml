@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.EditCustomer">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Nom du client"
+                   x:Name="entryName"/>
+            <Entry Placeholder="Adresse"
+                   x:Name="entryAddress"/>
+            <Entry Placeholder="Code Postal"
+                   x:Name="entryPostalCode"/>
+            <Entry Placeholder="Ville"
+                   x:Name="entryCity"/>
+            <Entry Placeholder="Adresse e-mail"
+                   x:Name="entryMail"/>
+            <Entry Placeholder="Pacage"
+                   x:Name="entryPacage"/>
+            <Button Text="Enregistrer"
+                    Clicked="Save_Clicked"/>
+            <Label x:Name="labelHiddenId"
+                   Text="0"
+                   IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

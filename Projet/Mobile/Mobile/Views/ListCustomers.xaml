@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.ListCustomers">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Rechercher un client"
+                   TextChanged="EntryCustomerResearchField_TextChanged"
+                   x:Name="entryCustomerResearchField"/>
+            <ListView x:Name="listViewCustomers"
+                          ItemTapped="Customer_Tapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}"
+                                           FontAttributes="Bold"/>
+                                    <Label Text="{Binding City}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            <Button Text="Créer un nouveau client"
+                        Clicked="NewCustomer_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.About">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Cette application a été développée par CUVELIER Mathieu du 1er au 8 mars 2018 dans le cadre du projet de fin de formation de la POEC .NET au sein de l'IMIE d'Angers."
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Contact : cuveliermathieu@gmail.com"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

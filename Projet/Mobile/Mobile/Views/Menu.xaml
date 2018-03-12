@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Menu"
+             BackgroundColor="DarkSeaGreen">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="BlueViolet">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="ListCustomers_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="Recherche de client"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         BackgroundColor="Aquamarine">
+                <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="Synchronization_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="Synchronisation"/>
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                         BackgroundColor="CadetBlue">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="Deconnection_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="Déconnexion"/>
+            </StackLayout>
+            <StackLayout Grid.Column="1"
+                         Grid.Row="1"
+                         BackgroundColor="Turquoise">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="WaitingForSynchronization_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="Éléments en attente de synchronisation"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2"
+                         BackgroundColor="RoyalBlue">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="About_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="À propos"/>
+            </StackLayout>
+            <StackLayout Grid.Row="2"
+                         Grid.Column="1"
+                         BackgroundColor="DarkCyan">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Tapped="DeviceInfo_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Label Text="Informations sur l'appareil"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.Synchronizing">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="La synchronisation des données se fait automatiquement et quotidiennement."
+                   FontAttributes="Bold"/>
+            <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+                <Label Text="Dernier envoi vers le serveur : "
+                       x:Name="labelLastUpload"/>
+                <Label Text="Dernière réception depuis le serveur : "
+                       x:Name="labelLastDownload"/>
+                <Button Text="Forcer la synchronisation"
+                        Clicked="ForceSync_Clicked"/>
+                <Button Text="Réinitialiser les données internes"
+                        Clicked="ForceReset_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

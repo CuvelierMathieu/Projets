@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mobile.CustomerDetails">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="labelName"/>
+                <Label x:Name="labelAddress"/>
+                <Label x:Name="labelPostalCode"/>
+                <Label x:Name="labelCity"/>
+                <Label x:Name="labelMail"/>
+                <Label x:Name="labelPacage"/>
+                <Button Text="Éditer informations"
+                        Clicked="EditCustomer_Clicked"/>
+                <Button Text="Nouveau contrat"
+                        Clicked="NewContract_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
